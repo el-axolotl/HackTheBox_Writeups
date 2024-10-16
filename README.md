@@ -24,10 +24,6 @@ The following list contains tools to assist you in your password-cracking, hash-
 
     - John is a password-cracker available for many OS platforms.
 
-- Gobuster: https://github.com/OJ/gobuster
-
-    - Gobuster is a tool used for enumerating URIs, subdomains, and virtual host names.
-
 # Post Exploit
 
 ## Logs
