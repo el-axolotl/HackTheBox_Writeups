@@ -18,7 +18,7 @@ The following list contains tools to assist you in your password-cracking, hash-
 
 - Mimikatz: https://github.com/gentilkiwi/mimikatz
 
-    - Mimikatz is a tool used to extract plaintexts passwords, hashes, PIN codes and kerberos tickets from memory. It can also perform pass-the-hash, pass-the-ticket or build Golden tickets.
+    - Mimikatz is a tool used to extract plaintexts passwords, hashes, PIN codes and kerberos tickets from memory. It can also perform pass-the-hash, pass-the-ticket or build golden tickets.
 
 - John The Ripper: https://github.com/openwall/john
 
