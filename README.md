@@ -1,3 +1,35 @@
+# Exploitation
+
+## Password-Cracking Tools
+
+The following list contains tools to assist you in your password-cracking, hash-cracking, and testing of credentials.
+
+- Hashcat
+
+    -   Similar to John The Ripper, but is able to use multiple GPUs in parallel for password/hash cracking attacks.
+
+- Mimikatz
+
+    - Mimikatz is a tool used to extract plaintexts passwords, hashes, PIN codes and kerberos tickets from memory. It can also perform pass-the-hash, pass-the-ticket or build Golden tickets.
+
+- Medusa
+
+- Brutespray
+
+- Hydra
+
+- Crunch
+
+- CeWL
+
+- John The Ripper
+
+- Patator
+
+- GoBuster
+
+- PACK
+
 # Post Exploit
 
 ## Logs
