@@ -28,11 +28,11 @@ Once your attack is completed, it's important to remove any evidence that the at
 
 Why remove logs, when you could blame someone else?
 
-    - With some effort you could modify existing logs that track your attack, and modify them to blame someone else.
+- With some effort you could modify existing logs that track your attack, and modify them to blame someone else.
 
-    - Using Meterpreter's Incognito attack, you can steal another user's token and perform malicious tasks.
+- Using Meterpreter's Incognito attack, you can steal another user's token and perform malicious tasks.
 
-        - For more info: https://www.offsec.com/metasploit-unleashed/fun-incognito/
+    - For more info: https://www.offsec.com/metasploit-unleashed/fun-incognito/
 
 In both cases, the result will be logs from a different user taking malicious actions.
 
@@ -40,12 +40,12 @@ In both cases, the result will be logs from a different user taking malicious ac
 
 Simply modifying timestamps can help throw an investigation off your trail, however, it does confirm that some tampering did happen.
 
-    - Using Meterpreter's TimeStomp tool, you can change timestamp information on a log file's modification, access, created, and entry (MACE) metadata: 
+- Using Meterpreter's TimeStomp tool, you can change timestamp information on a log file's modification, access, created, and entry (MACE) metadata: 
     
-        - meterpreter > timestomp log.txt -v
+    - meterpreter > timestomp log.txt -v
 
-            - This command will change a file's MACE metadata to make it look like the file was created, accessed, created, and modified all at the same time
+        - This command will change a file's MACE metadata to make it look like the file was created, accessed, created, and modified all at the same time
 
-        - meterpreter > timestomp log.txt -m "10/31/1999 11:11:11"
+    - meterpreter > timestomp log.txt -m "10/31/1999 11:11:11"
 
-            - This command will change a file's MACE metadata specifically to 10/31/1999 11:11:11
+        - This command will change a file's MACE metadata specifically to 10/31/1999 11:11:11
