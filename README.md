@@ -24,6 +24,50 @@ The following list contains tools to assist you in your password-cracking, hash-
 
     - John is a password-cracker available for many OS platforms.
 
+## Web Application Attacks
+
+- Improper handling of errors
+
+    - Sometimes devs add code to help them debug at the time of development. Error codes can sometimes give more information about the environment, such as locations of files.
+
+- Missing input validation or input sanitization
+
+    - This type of vulnerability can lead to injection attacks.
+
+        - To try this exploit, try entering a single quote character on forms or anywhere that the web app accepts user input. If the form outputs a SQL error, then you know that the web app is vulnerable to SQLi attacks.
+
+        ```sql
+        ' or 1==1--
+        ```
+
+- A lack of code signing
+
+    - Code and scripts can be signed using private and public certificates. If there is a lack of code signing, it means that the code can be altered with a possiblity of going undetected.
+
+- Session attacks
+
+    - Session highjacking
+
+        - Session highjacking is done when another user's session token is used to impersonate that user (the victim).
+
+    - Session replay
+
+        - Session replay is when the attack has access to the authentication system, and the session is intercepted and repeated. A form of man-in-the-middle attack.
+
+- Forgery attacks
+
+    - Cross-site request forgery (CSRF/XSRF)
+
+        - This type of attack is used to trick a victim user into making a request that they did not intend. Changing a password, settings, or any other unintended action would be an example. Exploiting an Administrator account with this type of attack could be catastrophic for the victim. The attack is carried out by crafting a URL with predefined variables in hopes that the victim doesn't notice. For example, creating a url that requests $100 to your attacker bank account, and sending out that url to a victim's email.
+
+    - Server-side request forgery
+
+        - This attack is similar to a CSRF attack, but the victim is the server itself. Once connected a server, you could have the server connect to other back-end systems in hopes of getting access to more information, credentials, etc.
+
+### Resources
+
+- OWASP Top 10 Application Security Risks: https://owasp.org/www-project-top-ten/
+
 # Post Exploit
 
 ## Logs
