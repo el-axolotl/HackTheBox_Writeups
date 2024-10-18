@@ -36,6 +36,8 @@ The following list contains tools to assist you in your password-cracking, hash-
 
         - To try this exploit, try entering a single quote character on forms or anywhere that the web app accepts user input. If the form outputs a SQL error, then you know that the web app is vulnerable to SQLi attacks.
 
+        #### SQLi Example
+
         ```sql
         ' or 1==1--
         ```
