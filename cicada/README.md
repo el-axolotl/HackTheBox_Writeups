@@ -1,4 +1,4 @@
-# Cicada
+# Beginner's Guide To Cicada
 
 URL: https://app.hackthebox.com/machines/Cicada
 
