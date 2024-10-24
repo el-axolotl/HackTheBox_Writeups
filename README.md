@@ -32,12 +32,30 @@ The following list contains tools to assist you in your password-cracking, hash-
 
 - Missing input validation or input sanitization
 
-    - This type of vulnerability can lead to injection attacks.
+    - SQLi attacks.
 
         - To try this exploit, try entering a single quote character on forms or anywhere that the web app accepts user input. If the form outputs a SQL error, then you know that the web app is vulnerable to SQLi attacks.
 
+        #### SQLi Example
+
         ```sql
-        ' or 1==1--
+        ' or 1=1;--
+        ```
+
+    - Directory traversal attacks
+
+        - This attack takes place when you are able to access a file nested in a directory that you should not have access to. Web apps that allow for local or remote file inclusion can be susceptible to this attack is the input isn't being sanitized.
+
+        #### Directory Traversal
+
+        ```cmd
+        http://localhost/../../Windows/system32/cmd.exe
+        ``` 
+
+        #### Encoded Directory Traversal
+
+        ```cmd
+        http://localhost/%2E%2E%2F%2E%2E%2FWindows/system32/cmd.exe
         ```
 
 - A lack of code signing
@@ -63,6 +81,10 @@ The following list contains tools to assist you in your password-cracking, hash-
     - Server-side request forgery
 
         - This attack is similar to a CSRF attack, but the victim is the server itself. Once connected a server, you could have the server connect to other back-end systems in hopes of getting access to more information, credentials, etc.
+
+- Cross-site scripting (XSS) attacks
+
+    - 
 
 ### Resources
 
