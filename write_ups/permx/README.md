@@ -5,6 +5,7 @@ URL: https://app.hackthebox.com/machines/PermX
 # Tools
 
 - nmap
+- gobuster
 
 ## Reconnaissance
 
@@ -36,3 +37,26 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 8.14 seconds
 ```
 
+### Scanning subdomains
+
+- From the nmap results, you should have identified a web page being hosted on the victim machine. Using a web browswer, navigate to the victim IP address on port 80 and you should see that it tries to resolve to permx.htb but it may not load correctly. Let's add this IP and domain to the host file on our attack machine.
+
+#### /etc/hosts file
+
+```
+10.10.11.23 permx.htb
+```
+
+- For the next phase of reconnaissance, we should try scanning for subdomains. The tool I use for this is Gobuster, which has the following syntax:
+
+    ```
+    gobuster vhost -w /path/to/wordlist.txt -u permx.htb --append-domain
+    ```
+
+    - If you don't know where to get a wordlist for gobuster, checkout SecLists: https://github.com/danielmiessler/SecLists
+
+- After letting gobuster scan for subdomains, you may find a new URL: http://lms.permx.htb
+
+# Additional resources
+
+- SecLists: https://github.com/danielmiessler/SecLists
