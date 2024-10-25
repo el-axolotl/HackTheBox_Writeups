@@ -2,7 +2,7 @@
 
 URL: https://app.hackthebox.com/machines/Cicada
 
-# Tools
+## Tools
 
 - nmap
 - nxc
@@ -20,7 +20,7 @@ URL: https://app.hackthebox.com/machines/Cicada
 
 - With enough probing, you may discover the OS and a few interesting ports.
 
-    - If you are unfamiliar with the ports discovered, checkout the following resource for explanations on the various ports discovered and what they could be used for: https://www.speedguide.net/ports.php?
+    - If you are unfamiliar with the ports discovered, checkout the following resource for identifying common ports and services: https://www.speedguide.net/ports.php?
 
     - Another resource to use when gathering intelligence, is to check CVE lists for ports and services identified on your victim machine, to learn about any documented volnurabilities: https://cve.mitre.org/cve/search_cve_list.html
 
